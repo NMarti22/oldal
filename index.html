@@ -16,6 +16,12 @@
         .incorrect {
             background-color: red;
         }
+
+        .result-images img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -37,50 +43,54 @@
         <h2> Kerdes 2:</h2>
         <p> Balintocska mikor szuletett?</p>
         <ul>
-            <li> <input type="radio" name="q2" value="marcius8"> Marcius 8 </li>
-            <li> <input type="radio" name="q2" value="aprilis8"> Aprilis 8 </li>
-            <li> <input type="radio" name="q2" value="majus8"> Majus 8 </li>
+            <li> <input type="radio" name="q2" value="correct"> Marcius 8 </li>
+            <li> <input type="radio" name="q2" value="incorrect"> Aprilis 8 </li>
+            <li> <input type="radio" name="q2" value="incorrect"> Majus 8 </li>
         </ul>
 
-        <button onclick="showResult2()"> Valasz Elkuldese</button>
-        <p id="result2></p>
+        <button onclick="showResult()"> Valasz Elkuldese</button>
+        <p id="result2"></p>
 
-
-
-        
+        <div class="result-images"></div>
     </div>
 
     <script>
+        function changeBackgroundColor(element) {
+            if (element.checked) {
+                document.body.classList.remove("incorrect", "correct");
+                document.body.classList.add("incorrect");
+            }
+        }
+
         function showResult() {
-            var answer = document.querySelector('input[name="q1"]:checked');
+            // Kérdések száma
+            var totalQuestions = 2;
+
+            // Helyes válaszok száma
+            var correctAnswers = 0;
+
+            // Ellenőrizzük mindkét kérdést
+            for (var i = 1; i <= totalQuestions; i++) {
+                var answer = document.querySelector('input[name="q' + i + '"]:checked');
+                if (answer && answer.value === "correct") {
+                    correctAnswers++;
+                }
+            }
+
+            // Eredmények kiírása
             var resultElement = document.getElementById("result1");
+            resultElement.innerHTML = "Eredmény: " + (correctAnswers / totalQuestions) * 100 + "%";
 
-            if (answer && answer.value === "bokmester") {
-                resultElement.innerHTML = "A valaszod: " + answer.value;
-                document.body.classList.remove("incorrect");
-                document.body.classList.add("correct");
+            // Képek megjelenítése az eredménytől függően
+            var resultImages = document.querySelector(".result-images");
+            if ((correctAnswers / totalQuestions) * 100 < 40) {
+                resultImages.innerHTML = '<img src="images/image1.jpg" alt="Első kép">';
+            } else if ((correctAnswers / totalQuestions) * 100 >= 40 && (correctAnswers / totalQuestions) * 100 < 90) {
+                resultImages.innerHTML = '<img src="images/image2.jpg" alt="Második kép">';
             } else {
-                resultElement.innerHTML = "Kerlek, valassz egy valaszt!";
-                document.body.classList.remove("correct");
-                document.body.classList.add("incorrect");
+                resultImages.innerHTML = '<img src="images/image3.jpg" alt="Harmadik kép">';
             }
         }
-
-        function showResult2() {
-            var answer= document.querySelector('input[name="q2"]:checked');
-            var resultElement=document.getElementById("result2");
-        if (answer && answer.value === "marcius8") {
-                resultElement.innerHTML = "A valaszod: " + answer.value;
-                document.body.classList.remove("incorrect");
-                document.body.classList.add("correct");
-            } else {
-                resultElement.innerHTML = "Kerlek, valassz egy valaszt!";
-                document.body.classList.remove("correct");
-                document.body.classList.add("incorrect");
-            }
-        }
-            
-        
     </script>
 
 </body>
