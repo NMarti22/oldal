@@ -37,9 +37,6 @@
             <li><input type="radio" name="q1" value="incorrect"> PapucsBalint</li>
         </ul>
 
-        <button onclick="showResult()">Válasz Elküldése</button>
-        <p id="result1"></p>
-
         <h2> Kerdes 2:</h2>
         <p> Balintocska mikor szuletett?</p>
         <ul>
@@ -49,6 +46,7 @@
         </ul>
 
         <button onclick="showResult()"> Válasz Elküldése</button>
+        <p id="result1"></p>
         <p id="result2"></p>
 
         <div class="result-images"></div>
@@ -61,6 +59,7 @@
 
             // Helyes válaszok száma
             var correctAnswers = 0;
+            var answeredQuestions=0;
 
             // Ellenőrizzük mindkét kérdést
             for (var i = 1; i <= totalQuestions; i++) {
@@ -68,30 +67,33 @@
                 if (answer && answer.value === "correct") {
                     correctAnswers++;
                 }
+                answeredQuestions++;
             }
 
             // Eredmények kiírása
             var resultElement1 = document.getElementById("result1");
             resultElement1.innerHTML = "Eredmény: " + (correctAnswers / totalQuestions) * 100 + "%";
 
-            // Színváltás az eredménytől függően
+            // Színváltás az aktuális választól függően
             var bodyElement = document.body;
-            if ((correctAnswers / totalQuestions) * 100 < 40) {
+            if (answer && answer.value === "correct") {
+                bodyElement.classList.remove("incorrect", "correct");
+                bodyElement.classList.add("correct");
+            } else {
                 bodyElement.classList.remove("correct", "incorrect");
                 bodyElement.classList.add("incorrect");
-            } else {
-                bodyElement.classList.remove("correct", "incorrect");
-                bodyElement.classList.add("correct");
             }
 
-            // Képek megjelenítése az eredménytől függően
-            var resultImages = document.querySelector(".result-images");
-            if ((correctAnswers / totalQuestions) * 100 < 40) {
-                resultImages.innerHTML = '<img src="image1.jpg" alt="Első kép">';
-            } else if ((correctAnswers / totalQuestions) * 100 >= 40 && (correctAnswers / totalQuestions) * 100 < 90) {
-                resultImages.innerHTML = '<img src="image2.jpg" alt="Második kép">';
-            } else {
-                resultImages.innerHTML = '<img src="image3.jpg" alt="Harmadik kép">';
+            // Képek megjelenítése az összes kérdés után
+            if (answeredQuestions === totalQuestions) {
+                var resultImages = document.querySelector(".result-images");
+                if ((correctAnswers / totalQuestions) * 100 < 40) {
+                    resultImages.innerHTML = '<img src="image1.jpg" alt="Első kép">';
+                } else if ((correctAnswers / totalQuestions) * 100 >= 40 && (correctAnswers / totalQuestions) * 100 < 90) {
+                    resultImages.innerHTML = '<img src="image2.jpg" alt="Második kép">';
+                } else {
+                    resultImages.innerHTML = '<img src="image3.jpg" alt="Harmadik kép">';
+                }
             }
         }
     </script>
