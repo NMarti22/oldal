@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legyel te a legnagyobb rajongo es nyerd meg az Arany Fakanalat!</title>
+    <style>
+        body {
+            transition: background-color 0.5s ease;
+        }
+
+        .correct {
+            background-color: green;
+        }
+
+        .incorrect {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Kviz Oldal</h1>
+
+    <div id="quiz-container">
+        <h2>Kerdes 1:</h2>
+        <p>Mi Balintocska beceneve?</p>
+        <ul>
+            <li><input type="radio" name="q1" value="bokmester"> BokmesterBalint</li>
+            <li><input type="radio" name="q1" value="aranypintyoke"> Arany Pintyoke </li>
+            <li><input type="radio" name="q1" value="papucsbalint"> PapucsBalint</li>
+        </ul>
+
+        <button onclick="showResult()">Valasz Elkuldese</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function showResult() {
+            var answer = document.querySelector('input[name="q1"]:checked');
+            var resultElement = document.getElementById("result");
+
+            if (answer && answer.value === "bokmester") {
+                resultElement.innerHTML = "A valaszod: " + answer.value;
+                document.body.classList.remove("incorrect");
+                document.body.classList.add("correct");
+            } else {
+                resultElement.innerHTML = "Kerlek, valassz egy valaszt!";
+                document.body.classList.remove("correct");
+                document.body.classList.add("incorrect");
+            }
+        }
+    </script>
+
+</body>
+</html>
