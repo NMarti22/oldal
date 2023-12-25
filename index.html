@@ -32,12 +32,13 @@
         <h2>Kerdes 1:</h2>
         <p>Mi Balintocska beceneve?</p>
         <ul>
-            <li><input type="radio" name="q1" value="bokmester"> BokmesterBalint</li>
-            <li><input type="radio" name="q1" value="aranypintyoke"> Arany Pintyoke </li>
-            <li><input type="radio" name="q1" value="papucsbalint"> PapucsBalint</li>
+            <li><input type="radio" name="q1" value="correct"> BokmesterBalint</li>
+            <li><input type="radio" name="q1" value="incorrect"> Arany Pintyoke </li>
+            <li><input type="radio" name="q1" value="incorrect"> PapucsBalint</li>
         </ul>
 
-        <button onclick="showResult()">Valasz Elkuldese</button>
+        <button onclick="changeBackgroundColor()"> Színváltás</button>
+        <button onclick="showResult()"> Valasz Elkuldese</button>
         <p id="result1"></p>
 
         <h2> Kerdes 2:</h2>
@@ -48,44 +49,50 @@
             <li> <input type="radio" name="q2" value="incorrect"> Majus 8 </li>
         </ul>
 
+        <button onclick="changeBackgroundColor()"> Színváltás</button>
         <button onclick="showResult()"> Valasz Elkuldese</button>
         <p id="result2"></p>
 
         <div class="result-images"></div>
+
+        <button onclick="finalEvaluation()"> Végső kiértékelés</button>
     </div>
 
     <script>
-        function changeBackgroundColor(element) {
-            if (element.checked) {
-                document.body.classList.remove("incorrect", "correct");
-                document.body.classList.add("incorrect");
-            }
+        var correctAnswersCount = 0;  // Az összes helyes válasz számolásához
+
+        function changeBackgroundColor() {
+            document.body.classList.remove("incorrect", "correct");
+            document.body.classList.add("incorrect");
         }
 
         function showResult() {
-            // Kérdések száma
-            var totalQuestions = 2;
-
-            // Helyes válaszok száma
-            var correctAnswers = 0;
+            // A többi kód itt marad változatlanul...
 
             // Ellenőrizzük mindkét kérdést
             for (var i = 1; i <= totalQuestions; i++) {
                 var answer = document.querySelector('input[name="q' + i + '"]:checked');
                 if (answer && answer.value === "correct") {
-                    correctAnswers++;
+                    correctAnswersCount++;
                 }
             }
 
+            // A többi kód itt marad változatlanul...
+        }
+
+        function finalEvaluation() {
+            var totalQuestions = 2;  // Az összes kérdés száma
+
             // Eredmények kiírása
-            var resultElement = document.getElementById("result1");
-            resultElement.innerHTML = "Eredmény: " + (correctAnswers / totalQuestions) * 100 + "%";
+            var finalResult = (correctAnswersCount / totalQuestions) * 100;
+            var resultElement1 = document.getElementById("result1");
+            resultElement1.innerHTML = "Végső eredmény: " + finalResult + "%";
 
             // Képek megjelenítése az eredménytől függően
             var resultImages = document.querySelector(".result-images");
-            if ((correctAnswers / totalQuestions) * 100 < 40) {
+            if (finalResult < 40) {
                 resultImages.innerHTML = '<img src="image1.jpg" alt="Első kép">';
-            } else if ((correctAnswers / totalQuestions) * 100 >= 40 && (correctAnswers / totalQuestions) * 100 < 90) {
+            } else if (finalResult >= 40 && finalResult < 90) {
                 resultImages.innerHTML = '<img src="image2.jpg" alt="Második kép">';
             } else {
                 resultImages.innerHTML = '<img src="image3.jpg" alt="Harmadik kép">';
