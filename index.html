@@ -41,7 +41,7 @@
     <h1>Kviz Oldal</h1>
 
     <div id="quiz-container">
-        <h2>Kerdes 1:</h2>
+        <h3>Kerdes 1:</h3>
         <p>Mi Balintocska beceneve?</p>
         <ul>
             <li><input type="radio" name="q1" value="correct"> BokmesterBalint</li>
@@ -49,7 +49,7 @@
             <li><input type="radio" name="q1" value="incorrect"> PapucsBalint</li>
         </ul>
 
-        <h1> Kerdes 2:</h1>
+        <h3> Kerdes 2:</h3>
         <p> Balintocska mikor szuletett?</p>
         <ul>
             <li> <input type="radio" name="q2" value="correct"> Marcius 8 </li>
@@ -57,7 +57,7 @@
             <li> <input type="radio" name="q2" value="incorrect"> Majus 8 </li>
         </ul>
 
-        <h1> Kerdes 3:</h1>
+        <h3> Kerdes 3:</h3>
         <p> Mernokke avatasat:</p>
         <ul>
             <li> <input type="radio" name="q3" value="incorrect"> nem tamogatom </li>
@@ -65,19 +65,25 @@
             <li> <input type="radio" name="q3" value="incorrect"> tagadom</li>
         </ul>
 
-        <h1> Kerdes 4 </h1>
+        <h3> Kerdes 4 </h3>
         <p> Kit szeret a Balintocska a legjobban? </p>
         <li> <input type="radio" name="q4" value= "correct"> Martikat</li>
         <li> <input type="radio" name="q4" value= "correct"> Martit </li>
         <li> <input type="radio" name="q4" value="correct"> Martikacskat </li>
 
 
-        <h1> Kerdes 5 </h1>
+        <h3> Kerdes 5 </h3>
         <p> Muveszneve:</p>
         <li> <input type="radio" name="q5" value="incorrect"> fizikaboy98</li>
         <li> <input type="radio" name="q5" value="incorrect"> sugardaddy98</li>
         <li> <input type="radio" name="q5" value="correct"> csejteib98 </li>
 
+
+        <h3> Kerdes 6</h3>
+        <p> Qpacsapata:</p>
+        <li> <input type="radio" name="q6" value="incorrect"> Labasch</li>
+        <li> <input type="radio" name="q6" value="incorrect"> Hajasch</li>
+        <li> <input type="radio" name="q6" value ="correct"> Labosch </li>
         
 
 
@@ -88,8 +94,7 @@
         
 
         <button onclick="showResult()"> Válasz Elküldése</button>
-        <p id="result1"></p>
-        <p id="result2"></p>
+        
 
         <div class="result-images"></div>
     </div>
@@ -97,25 +102,36 @@
     <script>
         function showResult() {
             // Kérdések száma
-            var totalQuestions = 4;
+            var totalQuestions = 6;
 
             // Helyes válaszok száma
             var correctAnswers = 0;
             var answeredQuestions=0;
 
-            // Ellenőrizzük mindkét kérdést
+            // Ellenőrizzük a kérdéseket
             for (var i = 1; i <= totalQuestions; i++) {
                 var answer = document.querySelector('input[name="q' + i + '"]:checked');
                 if (answer && answer.value === "correct") {
                     correctAnswers++;
-                    document.body.classList.remove("incorrect");
-                    document.body.classList.add("correct");
-                } else {
-                    document.body.classList.remove("correct");
-                    document.body.classList.add("incorrect");
                 }
                 answeredQuestions++;
             }
+
+
+
+            //Háttérszín beállítása az összes kérdés után
+            if (answeredQuestions===totalQuestions) {
+                if ((correctAnswers/totalQuestions)*100<40) {
+                    document.body.classList.remove("correct");
+                    document.body.classList.add("incorrect);
+                 } else {
+                    document.body.classList.remove("incorrect");
+                    document.body.classList.add("correct);
+                
+
+
+
+            
 
             // Eredmények kiírása
             var resultElement1 = document.getElementById("result1");
