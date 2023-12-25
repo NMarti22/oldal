@@ -84,11 +84,11 @@
             // Képek megjelenítése az eredménytől függően
             var resultImages = document.querySelector(".result-images");
             if ((correctAnswers / totalQuestions) * 100 < 40) {
-                resultImages.innerHTML = '<img src="images/image1.jpg" alt="Első kép">';
+                resultImages.innerHTML = '<img src="image1.jpg" alt="Első kép">';
             } else if ((correctAnswers / totalQuestions) * 100 >= 40 && (correctAnswers / totalQuestions) * 100 < 90) {
-                resultImages.innerHTML = '<img src="images/image2.jpg" alt="Második kép">';
+                resultImages.innerHTML = '<img src="image2.jpg" alt="Második kép">';
             } else {
-                resultImages.innerHTML = '<img src="images/image3.jpg" alt="Harmadik kép">';
+                resultImages.innerHTML = '<img src="image3.jpg" alt="Harmadik kép">';
             }
         }
     </script>
