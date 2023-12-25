@@ -66,6 +66,11 @@
                 var answer = document.querySelector('input[name="q' + i + '"]:checked');
                 if (answer && answer.value === "correct") {
                     correctAnswers++;
+                    document.body.classList.remove("incorrect");
+                    document.body.classList.add("correct");
+                } else {
+                    document.body.classList.remove("correct");
+                    document.body.classList.add("incorrect");
                 }
                 answeredQuestions++;
             }
