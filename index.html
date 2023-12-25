@@ -79,15 +79,7 @@
             var resultElement1 = document.getElementById("result1");
             resultElement1.innerHTML = "Eredmény: " + (correctAnswers / totalQuestions) * 100 + "%";
 
-            // Színváltás az aktuális választól függően
-            var bodyElement = document.body;
-            if (answer && answer.value === "correct") {
-                bodyElement.classList.remove("incorrect", "correct");
-                bodyElement.classList.add("correct");
-            } else {
-                bodyElement.classList.remove("correct", "incorrect");
-                bodyElement.classList.add("incorrect");
-            }
+            
 
             // Képek megjelenítése az összes kérdés után
             if (answeredQuestions === totalQuestions) {
