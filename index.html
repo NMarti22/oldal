@@ -148,7 +148,8 @@
             if (answeredQuestions === totalQuestions) {
                 var resultImages = document.querySelector(".result-images");
                 if ((correctAnswers / totalQuestions) * 100 < 40) {
-                    resultImages.innerHTML = '<img src="image1.jpg" alt="Első kép">';
+                    resultImages.innerHTML = "Bedurcizott a Balint. Te nem vagy igazi rajongó" + '<img src="image1.jpg" alt="Első kép">';
+                    
                 } else if ((correctAnswers / totalQuestions) * 100 >= 40 && (correctAnswers / totalQuestions) * 100 < 90) {
                     resultImages.innerHTML = '<img src="image2.jpg" alt="Második kép">';
                 } else {
