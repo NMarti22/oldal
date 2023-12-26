@@ -149,9 +149,9 @@
         <div id="home-content">
             <h3> Itt született meg az ötlet:</h3>
 
-            <img src="kezdetek1.jpg">
-            <img src="kezdetek2.jpg">
-            <img src="kezdet3.jpg">
+            <img src="kezdetek1.jpg" alt="Elso kep">
+            <img src="kezdetek2.jpg" alt="Masodik kep">
+            <img src="kezdet3.jpg" alt="Harmadik kep">
         </div>
 
 
@@ -231,7 +231,7 @@
             if (answeredQuestions === totalQuestions) {
                 var resultImages = document.querySelector(".result-images");
                 if ((correctAnswers / totalQuestions) * 100 < 40) {
-                    resultImages.innerHTML = "Bedurcizott a Bálint. Te nem vagy igazi rajongó" + '<img src="image1.jpg" alt="Első kép">';
+                    resultImages.innerHTML = "Bedurcizott a Bálint. Te nem vagy igazi rajongó." + '<img src="image1.jpg" alt="Első kép">';
                     
                 } else if ((correctAnswers / totalQuestions) * 100 >= 40 && (correctAnswers / totalQuestions) * 100 < 90) {
                     resultImages.innerHTML = '<img src="image2.jpg" alt="Második kép">';
