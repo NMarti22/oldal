@@ -31,13 +31,24 @@
             height: auto;
             margin-top: 20px;
         }
+
+        #quiz-container {
+            display:block;
+        }
+
+        #home-content {
+            display:none;
+        }
+
+
+        
     </style>
 </head>
 <body class="default">
 
         <nav>
             <ul>
-                <li><a href="#">Kezdetek</a> </li>
+                <li><a href="#" onclick="showStart()" >Kezdetek</a> </li>
                 <li><a href="#">Arany Fakanál Rovat</a></li>
                 <li><a href="#"> Sims Bálint </a></li>
             </ul>
@@ -47,9 +58,11 @@
 
     
 
-    <h1>Kvíz Oldal</h1>
+    
 
     <div id="quiz-container">
+        <h1>Kvíz Oldal</h1>
+        
         <h3>1. Kérdés:</h3>
         <p>Mi Bálintocska beceneve?</p>
         <ul>
@@ -131,6 +144,15 @@
             <li> <input type="radio" name="q10" value="correct"> áramköri és jelátviteli feladatai </li>
             <li> <input type="radio" name="q10" value="incorrect"> áramköri terjedései </li>
         </ul>
+
+
+        <div id="home-content">
+            <h3> Itt született meg az ötlet:</h3>
+
+            <img src="kezdetek1.jpg">
+            <img src="kezdetek2.jpg">
+            <img src="kezdet3.jpg">
+        </div>
 
 
 
@@ -221,6 +243,15 @@
                 
             }
         }
+
+       function showStart(){
+           document.getElementById('quiz-container').style.display='none';
+           document.getElementById('home-content').style.display='block';
+           
+
+
+
+        
     </script>
 
 </body>
