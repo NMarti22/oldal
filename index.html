@@ -199,6 +199,14 @@
                 } else {
                     resultImages.innerHTML = '<img src="image3.jpg" alt="Harmadik kép">';
                 }
+
+                setTimeout(function () {
+                document.body.classList.remove("correct", "incorrect", "default-background-after-quiz");
+                resultElement1.innerHTML = "";
+                resultImages.innerHTML = "";
+            }, 2000); // Időzítés: 2000 milliszekundum (2 másodperc)
+
+                
             }
         }
     </script>
