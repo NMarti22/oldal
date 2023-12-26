@@ -7,22 +7,17 @@
     <style>
         body {
             transition: background-color 0.5s ease;
+            
         }
 
-        .default-background {
+        .default {
             background-image: url('hatter.jpg');
             background-repeat:repeat;
             background-size:auto;
             background-position: top left;
         }
 
-        .default-background-after-quiz {
-            background:none;
-        }
-
-
-
-        
+    
 
         .correct {
             background-color: green;
@@ -167,9 +162,11 @@
             //Háttérszín beállítása az összes kérdés után
            if (answeredQuestions===totalQuestions) {
                 if ((correctAnswers/totalQuestions)*100<40) {
+                    document.body.classList.remove("default");
                     document.body.classList.remove("correct");
                     document.body.classList.add("incorrect");
                  } else {
+                    document.body.classList.remove("default");
                     document.body.classList.remove("incorrect");
                     document.body.classList.add("correct");
                 }
@@ -186,6 +183,9 @@
 
             document.body.classList.add("default-background-after-quiz");
 
+            setTimeout (function() {
+                document.body.classList.remove(
+
             
 
             // Képek megjelenítése az összes kérdés után
@@ -200,12 +200,7 @@
                     resultImages.innerHTML = '<img src="image3.jpg" alt="Harmadik kép">';
                 }
 
-                setTimeout(function () {
-                document.body.classList.remove("correct", "incorrect", "default-background-after-quiz");
-                resultElement1.innerHTML = "";
-                resultImages.innerHTML = "";
-            }, 2000); // Időzítés: 2000 milliszekundum (2 másodperc)
-
+                
                 
             }
         }
