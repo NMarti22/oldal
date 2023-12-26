@@ -77,24 +77,30 @@
 
         <h3> 4. Kérdés </h3>
         <p> Kit szeret a Bálintocska a legjobban? </p>
-        <li> <input type="radio" name="q4" value= "correct"> Mártikát</li>
-        <li> <input type="radio" name="q4" value= "correct"> Mártit </li>
-        <li> <input type="radio" name="q4" value="correct"> Mártikácskát </li>
+         <ul>
+            <li> <input type="radio" name="q4" value= "correct"> Mártikát</li>
+            <li> <input type="radio" name="q4" value= "correct"> Mártit </li>
+            <li> <input type="radio" name="q4" value="correct"> Mártikácskát </li>
+         </ul>
 
 
         <h3> 5. Kérdés </h3>
         <p> Művészneve:</p>
-        <li> <input type="radio" name="q5" value="incorrect"> fizikaboy69</li>
-        <li> <input type="radio" name="q5" value="incorrect"> sugardaddy98</li>
-        <li> <input type="radio" name="q5" value="correct"> csejteib98 </li>
-
+        <ul>
+            <li> <input type="radio" name="q5" value="incorrect"> fizikaboy69</li>
+            <li> <input type="radio" name="q5" value="incorrect"> sugardaddy98</li>
+            <li> <input type="radio" name="q5" value="correct"> csejteib98 </li>
+        </ul>
 
         <h3> 6. Kérdés </h3>
         <p> Qpacsapata:</p>
-        <li> <input type="radio" name="q6" value="incorrect"> Lábasch</li>
-        <li> <input type="radio" name="q6" value="incorrect"> Hájasch</li>
-        <li> <input type="radio" name="q6" value ="correct"> Lábosch </li>
-
+         <ul>
+            <li> <input type="radio" name="q6" value="incorrect"> Lábasch</li>
+            <li> <input type="radio" name="q6" value="incorrect"> Hájasch</li>
+            <li> <input type="radio" name="q6" value ="correct"> Lábosch </li>
+         </ul>
+        
+        
         <h3> 7. Kérdés </h3>
         <p> Mi Bálintocska kedvenc színe? </p>
         <li> <input type ="radio" name="q7" value= "incorrect"> Narancssárga</li>
@@ -103,16 +109,19 @@
 
         <h3> 8. Kérdés </h3>
         <p> Kinek szurkol a Bálintocska? </p>
-        <li> <input type ="radio" name="q8" value="correct"> Csak a Barca! </li>
-        <li> <input type="radio" name="q8" value="incorrect"> Csak a Manchester United! </li>
-        <li> <input type="radio" name="q8" value="incorrect"> Csak a Real Madrid! </li>
+        <ul>
+            <li> <input type ="radio" name="q8" value="correct"> Csak a Barca! </li>
+            <li> <input type="radio" name="q8" value="incorrect"> Csak a Manchester United! </li>
+            <li> <input type="radio" name="q8" value="incorrect"> Csak a Real Madrid! </li>
+        </ul>   
 
         <h3> 9. Kérdés </h3>
         <p>Mi Bálintocska kedvenc sportja?</p>
-        <li> <input type="radio" name= "q9" value="incorrect"> Foci </li>
-        <li> <input type="radio" name="q9" value="correct"> Kosár </li>
-        <li> <input type="radio" name="q9" value="incorrect"> Úszás</li>
-
+        <ul>
+            <li> <input type="radio" name= "q9" value="incorrect"> Foci </li>
+            <li> <input type="radio" name="q9" value="correct"> Kosár </li>
+            <li> <input type="radio" name="q9" value="incorrect"> Úszás</li>
+        </ul>
         
 
 
@@ -181,10 +190,9 @@
             var resultElement1 = document.getElementById("result1");
             resultElement1.innerHTML = "Eredmény: " + (correctAnswers / totalQuestions) * 100 + "%";
 
-            document.body.classList.add("default-background-after-quiz");
-
-            setTimeout (function() {
-                document.body.classList.remove(
+            
+            
+            
 
             
 
